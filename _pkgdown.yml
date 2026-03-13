@@ -1,4 +1,19 @@
-url: ~
+url: https://medtronic-biostatistics.github.io/r2rtfExtras/
+
+home:
+  title: Extending 'r2rtf' for RTF Generation
+
+authors:
+  Donnie Musgrove:
+    href: https://github.com/donaldmusgrove
+  footer:
+    roles: [cre]
+
 template:
   bootstrap: 5
 
+articles:
+- title: Outputting Tables
+  navbar:
+  contents:
+  - tables
