@@ -11,3 +11,9 @@ authors:
 
 template:
   bootstrap: 5
+
+articles:
+- title: Outputting Tables
+  navbar:
+  contents:
+  - tables
