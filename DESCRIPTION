@@ -1,0 +1,31 @@
+Package: r2rtfExtras
+Type: Package
+Title: Extending 'r2rtf' for RTF Generation
+Version: 0.1.0
+Authors@R: c(
+    person("Donnie", "Musgrove",
+      email = "donniemusgrove@gmail.com",
+      role = c("aut", "cre")
+    ),
+    person("Medtronic Inc.", role = "fnd")
+  )
+Description: Provides additional functions for creating RTFs
+    with 'r2rtf'. The functions comprise opinionated wrappers around 'r2rtf'
+    functions and opinionated, and niche modifications.
+License: GPL-3
+URL: https://github.com/Medtronic-Biostatistics/r2rtfExtras, https://medtronic-biostatistics.github.io/r2rtfExtras/
+BugReports: https://github.com/Medtronic-Biostatistics/r2rtfExtras/issues
+Depends:
+    R (>= 4.4.0)
+Imports:
+    r2rtf,
+    tools,
+    ggplot2
+Suggests:
+    grDevices,
+    knitr
+Encoding: UTF-8
+VignetteBuilder: knitr
+LazyData: true
+RoxygenNote: 7.3.2
+Config/testthat/edition: 3
