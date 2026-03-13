@@ -86,6 +86,7 @@ df_to_rtf(df              = df,
           col_widths1     = c(1, 2, 2, 2, 2),
           col_just0       = c("l", "c", "c"),
           col_just1       = c("l", "c", "c", "c", "c"),
+          border_top1     = c("", "single", "single", "single", "single"),
           footer_snapshot = "Henderson and Velleman (1981)", 
           path_program    = "C:\\\\program\\\\path\\\\tables.Rmd",
           path_output     = "C:\\\\output\\\\path\\\\MyColSpanTable.rtf")
@@ -103,6 +104,9 @@ shown in the example output above. Here are some key details:
 - `col_just0` is the justification of the column spanning header row.
 - `col_just1` is the justification of the column names row and the data
   rows.
+- `border_top1` specifies the border style for the top border of the
+  column names row; it can be blank, indicating no top border for the
+  corresponding column.
 
 What happens if the inputs are not quite consistent? Below, the
 `col_widths0` and `col_widths1` sum to the same value, but the header
@@ -121,6 +125,7 @@ df_to_rtf(df              = df,
           col_widths1     = c(1, 2.2, 1.7, 2.1, 2),
           col_just0       = c("l", "c", "c"),
           col_just1       = c("l", "c", "c", "c", "c"),
+          border_top1     = c("", "single", "single", "single", "single"),
           footer_snapshot = "Henderson and Velleman (1981)", 
           path_program    = "C:\\\\program\\\\path\\\\tables.Rmd",
           path_output     = "C:\\\\output\\\\path\\\\MyColSpanTableProblem.rtf")
