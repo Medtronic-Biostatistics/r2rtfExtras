@@ -1,0 +1,83 @@
+---
+title: "Outputting Figures"
+description: >
+  Outputting Figures.
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Outputting Figures}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+resource_files:
+  - pdf/MyFigure.pdf
+  - pdf/MyRecordedFigure.pdf
+---
+
+
+## Introduction
+
+This vignette demonstrates how to output figures to RTF using the
+`fig_to_rtf` function. The `fig_to_rtf` function takes a plot object as input and 
+outputs an RTF, the format of which is fairly opinionated, as you will see.
+
+## Get started
+
+First load the package and format some example data.
+
+```{r setup, message=FALSE, warning=FALSE, eval=FALSE}
+library(ggplot2)
+library(r2rtfExtras)
+
+# Create ggplot object
+plt <- ggplot(mtcars, aes(x=mpg, y=disp)) +
+  geom_point() +
+  theme_classic()
+
+```
+
+Next, we'll use the `fig_to_rtf` function with defaults, providing only the
+minimally required arguments and figure size arguments.
+
+```{r example1, message=FALSE, warning=FALSE, eval=FALSE}
+
+fig_to_rtf(plot_obj        = plt,
+           file_name       = "MyFigure.rtf", 
+           figure_title    = "Figure 1. My figure",
+           footer_snapshot = "Analysis 2025",
+           path_program    = "C:\\\\program\\\\path\\\\code.r",
+           fig_width       = 7, 
+           fig_height      = 3.2)
+```
+
+
+```{r, out.width = "100%", out.height = "400px", echo = FALSE, fig.align = "center"}
+knitr::include_graphics("pdf/MyFigure.pdf")
+```
+
+
+It is also possible to output figures created using base R plotting capabilities.
+You can record the plot using `recordPlot()`, a function from the `grDevices` packages,
+set the class, and output. An example is shown below.
+
+
+```{r example2, message=FALSE, warning=FALSE, eval=FALSE}
+
+plot(mtcars$mpg, mtcars$disp, pch=16)
+plt_record <- recordPlot()
+class(plt_record) <- c(class(plt_record), "ggplot")
+
+fig_to_rtf(plot_obj        = plt_record,
+           file_name       = "MyRecordedFigure.rtf", 
+           figure_title    = "Figure 1. My recorded figure",
+           footer_snapshot = "Analysis 2025",
+           path_program    = "C:\\\\program\\\\path\\\\code.r",
+           fig_width       = 7, 
+           fig_height      = 5)
+```
+
+```{r, out.width = "100%", out.height = "400px", echo = FALSE, fig.align = "center"}
+knitr::include_graphics("pdf/MyRecordedFigure.pdf")
+```
+
+
+For more information on inputs, check out the function documentation `?fig_to_rtf`.
+
