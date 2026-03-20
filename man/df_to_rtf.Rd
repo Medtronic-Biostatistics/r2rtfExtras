@@ -28,7 +28,8 @@ df_to_rtf(
   margin = c(1, 1, 0.75, 0.75, 0.5, 0.5),
   title_as_heading = 2,
   bookmark = TRUE,
-  bookmark_inc_title = FALSE
+  bookmark_inc_title = FALSE,
+  output = TRUE
 )
 }
 \arguments{
@@ -98,6 +99,9 @@ file (without extension).}
 
 \item{bookmark_inc_title}{logical. If TRUE, the bookmark will be placed in the RTF file 
 such that the title of the table is included. Otherwise, the title is excluded. Default is FALSE.}
+
+\item{output}{logical. If TRUE, the RTF file will be written to the location specified in \code{file_name}.
+Otherwise, the RTF object is returned. Default is TRUE.}
 }
 \value{
 An RTF file, \code{file_name}.
@@ -111,7 +115,6 @@ An RTF file, \code{file_name}.
   colspans in the column headers. See example for how to specify colspans.
 }
 \examples{
-\dontrun{
 df <- data.frame(Col1="1", Col2="2", Col3="3", Col4="4", Col5="5")
 
 # Example: simple table without colspans
@@ -122,7 +125,8 @@ df_to_rtf(df              = df,
           col_just1       = c("l", "c", "c", "c", "c"),
           footer_snapshot = "Analysis 2025", 
           path_program    = "C:\\\\\\\\program\\\\\\\\path\\\\\\\\code.r",
-          path_output     = "C:\\\\\\\\output\\\\\\\\path\\\\\\\\MyTable.rtf")
+          path_output     = "C:\\\\\\\\output\\\\\\\\path\\\\\\\\MyTable.rtf",
+          output          = FALSE)
 
 
 # Example: table with colspans
@@ -137,7 +141,7 @@ df_to_rtf(df              = df,
           col_just1       = c("l", "c", "c", "c", "c"),
           footer_snapshot = "Analysis 2025", 
           path_program    = "C:\\\\\\\\program\\\\\\\\path\\\\\\\\code.r",
-          path_output     = "C:\\\\\\\\output\\\\\\\\path\\\\\\\\MyColSpanTable.rtf")
-}
+          path_output     = "C:\\\\\\\\output\\\\\\\\path\\\\\\\\MyColSpanTable.rtf",
+          output          = FALSE)
 
 }

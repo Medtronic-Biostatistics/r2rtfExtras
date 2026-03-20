@@ -5,3 +5,7 @@
 ^pkgdown$
 ^\.github$
 ^LICENSE$
+^vignettes/pdf$
+^vignettes/figures.Rmd$
+^vignettes/tables.Rmd$
+^vignettes/extras.Rmd$

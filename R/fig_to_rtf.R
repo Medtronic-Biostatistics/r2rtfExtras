@@ -44,15 +44,18 @@
 #' 
 #' @param bookmark_inc_title logical. If TRUE, the bookmark will be placed in the RTF file 
 #'   such that the title of the table is included. Otherwise, the title is excluded. Default is FALSE.
+#'   
+#' @param output logical. If TRUE, the RTF file will be written to the location specified in \code{file_name}.
+#'   Otherwise, the RTF object is returned. Default is TRUE.
 #' 
 #' @details \code{fig_to_rtf} creates a formatted RTF file from a figure input.
 #'
 #' @returns An RTF file, \code{file_name}.
 #'
 #' @examples
-#' \dontrun{
-#' # Create ggplot object
-#' plt <- ggplot(mtcars, aes(x=mpg, y=disp)) +
+#' library(ggplot2)
+#' plt <- ggplot(data    = mtcars, 
+#'               mapping = aes(x=mpg, y=disp)) +
 #'   geom_point() +
 #'   theme_classic()
 #' 
@@ -63,33 +66,9 @@
 #'            path_program    = "C:\\\\program\\\\path\\\\code.r",
 #'            path_output     = "C:\\\\output\\\\path\\\\MyFigure.rtf",
 #'            fig_width       = 7, 
-#'            fig_height      = 3.2)
+#'            fig_height      = 3.2,
+#'            output          = FALSE)
 #' 
-#' # Using recordPlot with base R plot
-#' plot(1:10, 1:10, xlab="X-axis", ylab="Y-axis")
-#' plt_record <- recordPlot()
-#' 
-#' # Will return an error
-#' fig_to_rtf(plot_obj        = plt_record,
-#'            file_name       = "MyRecordedFigure.rtf", 
-#'            figure_title    = "Figure 1. My figure",
-#'            footer_snapshot = "Analysis 2025", 
-#'            path_program    = "C:\\\\program\\\\path\\\\code.r",
-#'            path_output     = "C:\\\\output\\\\path\\\\MyRecordedFigure.rtf",
-#'            fig_width       = 7, 
-#'            fig_height      = 3.2)
-#' 
-#' # Fix the class of the recorded plot object and try again
-#' class(plt_record) <- c(class(plt_record), "ggplot")
-#' fig_to_rtf(plot_obj        = plt_record,
-#'            file_name       = "MyRecordedFigure.rtf", 
-#'            figure_title    = "Figure 1. My figure",
-#'            footer_snapshot = "Analysis 2025", 
-#'            path_program    = "C:\\\\program\\\\path\\\\code.r",
-#'            path_output     = "C:\\\\output\\\\path\\\\MyRecordedFigure.rtf",
-#'            fig_width       = 7, 
-#'            fig_height      = 3.2)
-#' }
 #' 
 #' @importFrom ggplot2 ggsave
 #' @importFrom r2rtf rtf_read_figure rtf_figure
@@ -105,7 +84,8 @@ fig_to_rtf <- function(plot_obj, file_name,
                        margin=c(1,1, 0.75, 0.75, 0.5, 0.5),
                        title_as_heading = 2,
                        bookmark=TRUE,
-                       bookmark_inc_title=FALSE){
+                       bookmark_inc_title=FALSE,
+                       output=TRUE){
   
   #-----------------------------------------------------------------------------
   # Get call and check inputs
@@ -227,5 +207,9 @@ fig_to_rtf <- function(plot_obj, file_name,
     out <- rtf_bookmark(out, bookmark_name, bookmark_inc_title)
   }
   
-  write_rtf(out, file_name) 
+  if(output){
+    write_rtf(out, file = file_name)  
+  } else{
+    return(out)
+  }
 }

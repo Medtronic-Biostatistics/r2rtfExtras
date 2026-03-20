@@ -12,9 +12,25 @@ authors:
 template:
   bootstrap: 5
 
-articles:
-- title: Outputting Tables
-  navbar:
-  contents:
-  - tables
-  - figures
+
+navbar:
+  structure:
+    left:  [intro, reference, tutorials, news]
+    right: [search, github]
+  left:
+  - icon: fa-home
+    href: index.html
+  - text: Reference
+    href: reference/index.html
+  - text: Articles
+    menu:
+    - text: "Outputting Tables"
+      href: articles/tables.html
+    - text: "Outputting Figures"
+      href: articles/figures.html
+    - text: "Extra Functionality"
+      href: articles/extras.html
+    - text: "And more..."
+      href: articles/index.html
+  - text: News
+    href: news/index.html

@@ -10,7 +10,6 @@
 #'
 #' @returns The input RTF object with the stylesheet added.
 #'
-#' @export
 rtf_insert_stylesheet_headings <- function(rtf){
   # Input checks
   if(!"list" %in% class(rtf)) stop("Input 'rtf' must be of class 'list'.")

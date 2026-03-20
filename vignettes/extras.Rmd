@@ -1,0 +1,35 @@
+---
+title: "Extra Functionality"
+description: >
+  Extra Functionality.
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Extra Functionality}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+Beyond convenient wrapper functions, `r2rtfExtras` also offers additional 
+RTF functionality that is called internally:
+
+- `rtf_bookmark` for inserting RTF bookmarks.
+- `rtf_insert_heading` for styling table or figure titles as headings.
+- `rtf_insert_stylesheet_headings` for inserting a heading stylesheet into the RTF.
+- `rtf_tabstop` for inserting tab stops into the RTF header and/or footer.
+
+With each function, the input is an RTF object created by `r2rtf::rtf_encode` and 
+the output is the same RTF object with modifications. Each function manipulates
+the underlying RTF code. 
+
+Additionally, these functions are not exported, but the underlying code is readily
+available in the Github repository.
+
+
+## rtf_bookmark() 
+
+## rtf_insert_heading()
+
+## rtf_insert_stylesheet_headings()
+
+## rtf_tabstop()
