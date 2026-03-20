@@ -14,10 +14,11 @@ This package is currently under active development.
 ## Installation
 
 The package can currently be installed from this Github repository using
-the following (ensure devtools is installed):
+the following:
 
 ```         
-devtools::install_git("https://github.com/Medtronic-Biostatistics/r2rtfExtras.git")
+# If needed install.packages("remotes")
+remotes::install_github("Medtronic-Biostatistics/r2rtfExtras")
 ```
 
 See the [package website](https://medtronic-biostatistics.github.io/r2rtfExtras/) for
