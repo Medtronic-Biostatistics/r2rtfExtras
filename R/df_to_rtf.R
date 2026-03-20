@@ -69,6 +69,9 @@
 #' 
 #' @param bookmark_inc_title logical. If TRUE, the bookmark will be placed in the RTF file 
 #'   such that the title of the table is included. Otherwise, the title is excluded. Default is FALSE.
+#'   
+#' @param output logical. If TRUE, the RTF file will be written to the location specified in \code{file_name}.
+#'   Otherwise, the RTF object is returned. Default is TRUE.
 #'  
 #' @details \code{df_to_rtf} creates a formatted RTF file from a data frame input with optional
 #'   colspans in the column headers. See example for how to specify colspans. 
@@ -76,7 +79,6 @@
 #' @returns An RTF file, \code{file_name}.
 #'
 #' @examples
-#' \dontrun{
 #' df <- data.frame(Col1="1", Col2="2", Col3="3", Col4="4", Col5="5")
 #' 
 #' # Example: simple table without colspans
@@ -87,7 +89,8 @@
 #'           col_just1       = c("l", "c", "c", "c", "c"),
 #'           footer_snapshot = "Analysis 2025", 
 #'           path_program    = "C:\\\\program\\\\path\\\\code.r",
-#'           path_output     = "C:\\\\output\\\\path\\\\MyTable.rtf")
+#'           path_output     = "C:\\\\output\\\\path\\\\MyTable.rtf",
+#'           output          = FALSE)
 #' 
 #' 
 #' # Example: table with colspans
@@ -102,8 +105,8 @@
 #'           col_just1       = c("l", "c", "c", "c", "c"),
 #'           footer_snapshot = "Analysis 2025", 
 #'           path_program    = "C:\\\\program\\\\path\\\\code.r",
-#'           path_output     = "C:\\\\output\\\\path\\\\MyColSpanTable.rtf")
-#' }
+#'           path_output     = "C:\\\\output\\\\path\\\\MyColSpanTable.rtf",
+#'           output          = FALSE)
 #'
 #' @importFrom r2rtf rtf_page rtf_page_header rtf_title rtf_colheader rtf_body rtf_footnote rtf_page_footer rtf_encode write_rtf
 #' @importFrom tools file_path_sans_ext
@@ -121,7 +124,8 @@ df_to_rtf <- function(df, file_name, org, header_page, table_title,
                       margin=c(1,1, 0.75, 0.75, 0.5, 0.5),
                       title_as_heading=2,
                       bookmark=TRUE,
-                      bookmark_inc_title=FALSE){
+                      bookmark_inc_title=FALSE,
+                      output=TRUE){
   
   #-----------------------------------------------------------------------------
   # Get call and check inputs
@@ -274,5 +278,10 @@ df_to_rtf <- function(df, file_name, org, header_page, table_title,
     out <- rtf_bookmark(out, bookmark_name, bookmark_inc_title)
   }
   
-  write_rtf(out, file = file_name)  
+  if(output){
+    write_rtf(out, file = file_name)  
+  } else{
+    return(out)
+  }
+  
 }

@@ -18,7 +18,6 @@
 #'
 #' @returns The input RTF object with the modified start and end elements
 #'
-#' @export
 rtf_bookmark <- function(rtf, bookmark, inc_title=FALSE){
   # Input checks
   if(!"list" %in% class(rtf)) stop("Input 'rtf' must be of class 'list'.")

@@ -18,7 +18,6 @@
 #'
 #' @returns The input RTF object with the modified body
 #'
-#' @export
 rtf_tabstop <- function(rtf, twips, type="header"){
   # Input checks
   if(!"list" %in% class(rtf)) stop("Input 'rtf' must be of class 'list'.")

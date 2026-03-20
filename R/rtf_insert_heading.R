@@ -15,8 +15,7 @@
 #'   heading level must be present and the title must be bold.
 #'
 #' @returns The input RTF object with the modified body
-#'
-#' @export
+#' 
 rtf_insert_heading <- function(rtf, heading_level, caption, font.family){
   # Input checks
   if(!"list" %in% class(rtf)) stop("Input 'rtf' must be of class 'list'.")
