@@ -17,6 +17,6 @@ The input RTF object with the stylesheet added.
   levels 1 through 4 into an RTF file created by \code{r2rtf::rtf_encode}.
 }
 \details{
-\code{rtf_insert_stylesheet_headings} inserts a stylesheet into the 
-  RTF.
+\code{rtf_insert_stylesheet_headings} is an internal function that inserts 
+  a stylesheet into the RTF.
 }

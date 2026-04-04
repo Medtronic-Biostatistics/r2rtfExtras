@@ -9,12 +9,12 @@
 #' @param type character. Either "header" or "footer", indicating whether to modify
 #'   the page header or footer.
 #'  
-#' @details \code{rtf_tabstop} modifies the RTF body to insert a right-aligned
-#'   tabstop. It is assumed that the first line of the header or footer already contains 
-#'   a tab character, as is expected, i.e., the first line of the header 
-#'   should be the name of the organization followed by a tab character and the page number 
-#'   field. The first line of the footer should be the data (snapshot) information followed by
-#'   a tab character and the date of creation.
+#' @details \code{rtf_tabstop} is an internal function that modifies the RTF body to 
+#'   insert a right-aligned tabstop. It is assumed that the first line of the header 
+#'   or footer already contains a tab character, as is expected, i.e., the first line of the 
+#'   header should be the name of the organization followed by a tab character and the page 
+#'   number field. The first line of the footer should be the data (snapshot) information 
+#'   followed by a tab character and the date of creation.
 #'
 #' @returns The input RTF object with the modified body
 #'
