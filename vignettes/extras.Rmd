@@ -102,7 +102,7 @@ hdr <- c("My Organization \\tab Page \\pagenumber of \\pagefield",
 
 This will result in a page header with 2 lines: 
 
--   Line 1: "My Organization" followed by a tab character, then "Page X of Y" (where X
+-   Line 1: "My Organization" followed by a tab stop, then "Page X of Y" (where X
 is the current page number and Y is the total number of pages). 
 -   Line 2: "My Study Analysis".
 

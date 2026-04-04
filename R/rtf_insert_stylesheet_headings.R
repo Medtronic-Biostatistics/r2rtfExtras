@@ -5,8 +5,8 @@
 #'
 #' @param rtf list. List with 3 elements created by \code{r2rtf::rtf_encode}.
 #'  
-#' @details \code{rtf_insert_stylesheet_headings} inserts a stylesheet into the 
-#'   RTF. 
+#' @details \code{rtf_insert_stylesheet_headings} is an internal function that inserts 
+#'   a stylesheet into the RTF. 
 #'
 #' @returns The input RTF object with the stylesheet added.
 #'

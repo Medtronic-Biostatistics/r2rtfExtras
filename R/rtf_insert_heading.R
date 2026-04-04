@@ -10,9 +10,9 @@
 #' 
 #' @param font.family integer. The font family number used in the RTF.
 #'  
-#' @details \code{rtf_insert_heading} modifies the RTF body to change the title
-#'   into the specified heading style. Note that a stylesheet with defined
-#'   heading level must be present and the title must be bold.
+#' @details \code{rtf_insert_heading} is an internal function that modifies the RTF 
+#'   body to change the title into the specified heading style. Note that a stylesheet 
+#'   with defined heading level must be present and the title must be bold.
 #'
 #' @returns The input RTF object with the modified body
 #' 
