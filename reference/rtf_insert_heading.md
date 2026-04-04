@@ -34,6 +34,7 @@ The input RTF object with the modified body
 
 ## Details
 
-`rtf_insert_heading` modifies the RTF body to change the title into the
-specified heading style. Note that a stylesheet with defined heading
-level must be present and the title must be bold.
+`rtf_insert_heading` is an internal function that modifies the RTF body
+to change the title into the specified heading style. Note that a
+stylesheet with defined heading level must be present and the title must
+be bold.

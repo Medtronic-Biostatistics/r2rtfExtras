@@ -23,4 +23,5 @@ The input RTF object with the stylesheet added.
 
 ## Details
 
-`rtf_insert_stylesheet_headings` inserts a stylesheet into the RTF.
+`rtf_insert_stylesheet_headings` is an internal function that inserts a
+stylesheet into the RTF.
