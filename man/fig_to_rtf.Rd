@@ -13,7 +13,8 @@ fig_to_rtf(
   footer_snapshot,
   path_program,
   path_output,
-  font.family = 6,
+  font_family = 6,
+  font_size_header = 10,
   fig_width = 5,
   fig_height = 5,
   orientation = "landscape",
@@ -45,8 +46,10 @@ placed in second row of the footer. Required.}
 \item{path_output}{character. Path to the output file, e.g., "path/to/output.rtf",
 placed in third row of the footer. If not entered, will use \code{file_name}.}
 
-\item{font.family}{numeric. Font family for the RTF document. Default is 6 (Calibri).
+\item{font_family}{numeric. Font family for the RTF document. Default is 6 (Calibri).
 See \code{r2rtf:::font_type()} for other options.}
+
+\item{font_size_header}{numeric. Font size for the header and footer text. Default is 10.}
 
 \item{fig_width}{numeric. Width of the figure in inches. Default is 5.}
 
@@ -83,7 +86,7 @@ An RTF file, \code{file_name}.
 \examples{
 library(ggplot2)
 plt <- ggplot(data    = mtcars, 
-              mapping = aes(x=mpg, y=disp)) +
+              mapping = aes(x=.data$mpg, y=.data$disp)) +
   geom_point() +
   theme_classic()
 

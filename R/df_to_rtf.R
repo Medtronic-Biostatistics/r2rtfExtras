@@ -50,8 +50,13 @@
 #' @param org character. Organization name, placed in the top line of the page header,
 #'   left-aligned on the same line as the right-aligned page number. Default is "" (no organization name).
 #' 
-#' @param font.family numeric. Font family for the RTF document. Default is 6 (Calibri).
+#' @param font_family numeric. Font family for the RTF document. Default is 6 (Calibri).
 #'   See \code{r2rtf:::font_type()} for other options.
+#'   
+#' @param font_size numeric. Font size for the body of the table, including table text,
+#'   column headers, and table footnote. Default is 10.
+#'   
+#' @param font_size_header numeric. Font size for the header and footer text. Default is 10.
 #'   
 #' @param col_header_bg_color character. Background color for the column header rows, default is \code{"gray94"}. 
 #'   
@@ -118,7 +123,9 @@ df_to_rtf <- function(df, file_name, org, header_page, table_title,
                       col_just0, col_just1,border_top1,
                       footnote_table,cell_indents,
                       footer_snapshot, path_program, path_output,
-                      font.family=6,
+                      font_family=6,
+                      font_size=10,
+                      font_size_header=10,
                       col_header_bg_color="gray94",
                       orientation="landscape",
                       margin=c(1,1, 0.75, 0.75, 0.5, 0.5),
@@ -144,7 +151,7 @@ df_to_rtf <- function(df, file_name, org, header_page, table_title,
   if(!"path_program" %in% mn) stop("Path to program 'path_program' is required.")  
   
   # Return error if incorrect values entered
-  if(!font.family %in% 1:10) stop("Invalid font.family entered. See r2rtf:::font_type() for valid options.")
+  if(!font_family %in% 1:10) stop("Invalid font_family entered. See r2rtf:::font_type() for valid options.")
   
   # Set-up defaults if not entered
   if(!"org" %in% mn) org <- ""
@@ -191,7 +198,7 @@ df_to_rtf <- function(df, file_name, org, header_page, table_title,
   
   out <- rtf_page(df,
                   orientation  = orientation,
-                  col_width = ifelse(orientation == "portrait", 6.5, 9),
+                  col_width    = ifelse(orientation == "portrait", 6.5, 9),
                   margin       = margin,
                   border_first = "single", 
                   border_last  = "single",
@@ -199,16 +206,16 @@ df_to_rtf <- function(df, file_name, org, header_page, table_title,
   
   out <- rtf_page_header(out, 
                          text=header_page, 
-                         text_font_size = 10, 
+                         text_font_size = font_size_header, 
                          text_justification="l",
-                         text_font = font.family,
+                         text_font = font_family,
                          text_format = "b")
   
   out <- rtf_title(out, 
                    title = table_title, 
                    text_format="b", 
                    text_justification="l",
-                   text_font = font.family)
+                   text_font = font_family)
   
   attr_title <- attr(out, "rtf_title")
   
@@ -217,9 +224,10 @@ df_to_rtf <- function(df, file_name, org, header_page, table_title,
                          colheader = paste0(header_table0, collapse="|"),
                          col_rel_width = col_widths0,
                          text_format = "b",
+                         text_font_size = font_size,
                          text_justification = col_just0,
                          text_background_color=col_header_bg_color,
-                         text_font = font.family)
+                         text_font = font_family)
   }
   
   out <- rtf_colheader(out, 
@@ -227,30 +235,33 @@ df_to_rtf <- function(df, file_name, org, header_page, table_title,
                        col_rel_width = col_widths1,
                        border_top = border_top1,
                        text_format = "b",
+                       text_font_size = font_size,
                        text_justification = col_just1,
                        text_background_color=col_header_bg_color,
-                       text_font = font.family)
+                       text_font = font_family)
   
   out <- rtf_body(out, 
                   col_rel_width = col_widths1,
                   text_indent_left=cell_indents,
+                  text_font_size = font_size,
                   text_justification = col_just1,
                   border_top = "single",
                   border_bottom = "single",
-                  text_font = font.family)
+                  text_font = font_family)
   
   if(!is.null(footnote_table)){
     out <- rtf_footnote(out,
+                        text_font_size = font_size,
                         footnote = footnote_table,
-                        text_font = font.family)
+                        text_font = font_family)
   }
   
   out <- rtf_page_footer(out, 
                          text               = footer_page,
-                         text_font_size     = 10,
+                         text_font_size     = font_size_header,
                          text_justification = "l",
                          text_convert       = FALSE,
-                         text_font          = font.family,
+                         text_font          = font_family,
                          text_format        = "b") 
   
   out <- rtf_encode(out) 
@@ -263,7 +274,7 @@ df_to_rtf <- function(df, file_name, org, header_page, table_title,
     out <- rtf_insert_stylesheet_headings(out)
     
     # Insert heading
-    out <- rtf_insert_heading(out, heading_level=title_as_heading, caption = table_title, font.family = font.family)  
+    out <- rtf_insert_heading(out, heading_level=title_as_heading, caption = table_title, font_family = font_family)  
   }
   
   # Insert tab stop in header to right-align page number

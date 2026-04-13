@@ -22,7 +22,9 @@ df_to_rtf(
   footer_snapshot,
   path_program,
   path_output,
-  font.family = 6,
+  font_family = 6,
+  font_size = 10,
+  font_size_header = 10,
   col_header_bg_color = "gray94",
   orientation = "landscape",
   margin = c(1, 1, 0.75, 0.75, 0.5, 0.5),
@@ -80,8 +82,13 @@ placed in second row of the footer. Required.}
 \item{path_output}{character. Path to the output file, e.g., "path/to/output.rtf",
 placed in third row of the footer. If not entered, will use \code{file_name}.}
 
-\item{font.family}{numeric. Font family for the RTF document. Default is 6 (Calibri).
+\item{font_family}{numeric. Font family for the RTF document. Default is 6 (Calibri).
 See \code{r2rtf:::font_type()} for other options.}
+
+\item{font_size}{numeric. Font size for the body of the table, including table text,
+column headers, and table footnote. Default is 10.}
+
+\item{font_size_header}{numeric. Font size for the header and footer text. Default is 10.}
 
 \item{col_header_bg_color}{character. Background color for the column header rows, default is \code{"gray94"}.}
 

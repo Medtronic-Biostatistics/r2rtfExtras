@@ -3,13 +3,26 @@
 #' \code{rtf_insert_stylesheet_headings} inserts a stylesheet defining heading   
 #'   levels 1 through 4 into an RTF file created by \code{r2rtf::rtf_encode}. 
 #'
-#' @param rtf list. List with 3 elements created by \code{r2rtf::rtf_encode}.
+#' @param rtf list. List with 3 elements created by \code{r2rtf::rtf_encode}. The list 
+#'   must have elements named start, body, and end.
 #'  
-#' @details \code{rtf_insert_stylesheet_headings} is an internal function that inserts 
-#'   a stylesheet into the RTF. 
+#' @details \code{rtf_insert_stylesheet_headings} inserts into an RTF a stylesheet that 
+#'   defines heading levels. 
 #'
 #' @returns The input RTF object with the stylesheet added.
-#'
+#' 
+#' @examples
+#' # Create a simple RTF object
+#' rtf <- list(
+#'  start = "{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0 Arial;}}",
+#'  body = "{\\f0\\b This is the body of the RTF document.}",
+#'  end = "}"
+#'  )
+#'  
+#' # Insert the stylesheet for headings
+#' rtf <- rtf_insert_stylesheet_headings(rtf)
+#' 
+#' @export
 rtf_insert_stylesheet_headings <- function(rtf){
   # Input checks
   if(!"list" %in% class(rtf)) stop("Input 'rtf' must be of class 'list'.")
