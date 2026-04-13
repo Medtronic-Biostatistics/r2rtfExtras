@@ -31,9 +31,24 @@ The input RTF object with the modified start and end elements
 
 ## Details
 
-`rtf_bookmark` is an internal function that modifies the RTF to insert
-bookmark start and end tags within the document. The bookmark start tag
-is inserted either at the end of the RTF header (if `inc_title` is TRUE)
-or immediately before the table/figure content in the body (if
-`inc_title` is FALSE). The bookmark end tag is inserted at the beginning
-of the RTF end element.
+`rtf_bookmark` modifies the RTF to insert bookmark start and end tags
+within the document. The bookmark start tag is inserted either at the
+end of the RTF header (if `inc_title` is TRUE) or immediately before the
+table/figure content in the body (if `inc_title` is FALSE). The bookmark
+end tag is inserted at the beginning of the RTF end element.
+
+## Examples
+
+``` r
+# Create a simple RTF object
+rtf <- list(
+ start = "{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0 Arial;}}",
+ body = "{\\f0\\b This is the body of the RTF document.}",
+ end = "}"
+ )
+ 
+# Insert the bookmark and capture all contents
+rtf <- rtf_bookmark(rtf, 
+                    bookmark  = "mybookmark", 
+                    inc_title = TRUE)
+```

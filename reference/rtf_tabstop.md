@@ -38,3 +38,19 @@ the first line of the header should be the name of the organization
 followed by a tab character and the page number field. The first line of
 the footer should be the data (snapshot) information followed by a tab
 character and the date of creation.
+
+## Examples
+
+``` r
+# Create a simple RTF object with a header that includes a tab stop
+rtf <- list(
+  start = "{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0 Arial;}}",
+  body = "{\\header\n{\\pard{Header Left \\tab Header Right}\\par}\n}{\\f0\\b RTF text.}",
+  end = "}"
+  )
+ 
+# Insert the tabstop
+rtf <- rtf_tabstop(rtf, 
+                   twips = 9360, 
+                   type = "header")
+```

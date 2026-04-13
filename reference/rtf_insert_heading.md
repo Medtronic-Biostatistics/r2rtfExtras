@@ -6,7 +6,7 @@ style.
 ## Usage
 
 ``` r
-rtf_insert_heading(rtf, heading_level, caption, font.family)
+rtf_insert_heading(rtf, heading_level, caption, font_family)
 ```
 
 ## Arguments
@@ -24,7 +24,7 @@ rtf_insert_heading(rtf, heading_level, caption, font.family)
 
   character. The title already present in the RTF.
 
-- font.family:
+- font_family:
 
   integer. The font family number used in the RTF.
 
@@ -34,7 +34,26 @@ The input RTF object with the modified body
 
 ## Details
 
-`rtf_insert_heading` is an internal function that modifies the RTF body
-to change the title into the specified heading style. Note that a
-stylesheet with defined heading level must be present and the title must
-be bold.
+`rtf_insert_heading` modifies the RTF body to change the title into the
+specified heading style. Note that a stylesheet with defined heading
+level must be present and the title must be bold.
+
+## Examples
+
+``` r
+# Create a simple RTF object
+rtf <- list(
+ start = "{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0 Arial;}}",
+ body = "{\\f0\\b This is the body of the RTF document.}",
+ end = "}"
+ )
+ 
+# Insert the stylesheet for headings
+rtf <- rtf_insert_stylesheet_headings(rtf)
+
+# Insert heading level 2
+rtf <- rtf_insert_heading(rtf, 
+                          heading_level = 2, 
+                          caption = "This is the body of the RTF document.", 
+                          font_family = 1)
+```
