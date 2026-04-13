@@ -22,9 +22,23 @@ The input RTF object with the modified start and end elements
 \code{rtf_bookmark} inserts an RTF bookmark around the RTF body contents.
 }
 \details{
-\code{rtf_bookmark} is an internal function that modifies the RTF to 
+\code{rtf_bookmark} modifies the RTF to 
   insert bookmark start and end tags within the document. The bookmark start tag 
   is inserted either at the end of the RTF header (if \code{inc_title} is TRUE) 
   or immediately before the table/figure content in the body (if \code{inc_title} 
   is FALSE). The bookmark end tag is inserted at the beginning of the RTF end element.
+}
+\examples{
+# Create a simple RTF object
+rtf <- list(
+ start = "{\\\\rtf1\\\\ansi\\\\deff0{\\\\fonttbl{\\\\f0 Arial;}}",
+ body = "{\\\\f0\\\\b This is the body of the RTF document.}",
+ end = "}"
+ )
+ 
+# Insert the bookmark and capture all contents
+rtf <- rtf_bookmark(rtf, 
+                    bookmark  = "mybookmark", 
+                    inc_title = TRUE)
+
 }

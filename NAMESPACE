@@ -2,6 +2,10 @@
 
 export(df_to_rtf)
 export(fig_to_rtf)
+export(rtf_bookmark)
+export(rtf_insert_heading)
+export(rtf_insert_stylesheet_headings)
+export(rtf_tabstop)
 importFrom(ggplot2,ggsave)
 importFrom(r2rtf,rtf_body)
 importFrom(r2rtf,rtf_colheader)

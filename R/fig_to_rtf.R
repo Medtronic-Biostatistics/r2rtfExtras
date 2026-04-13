@@ -23,8 +23,10 @@
 #' @param org character. Organization name, placed in the top line of the page header,
 #'   left-aligned on the same line as the right-aligned page number. Default is "" (no organization name).
 #' 
-#' @param font.family numeric. Font family for the RTF document. Default is 6 (Calibri).
+#' @param font_family numeric. Font family for the RTF document. Default is 6 (Calibri).
 #'   See \code{r2rtf:::font_type()} for other options.
+#'   
+#' @param font_size_header numeric. Font size for the header and footer text. Default is 10.
 #' 
 #' @param fig_width numeric. Width of the figure in inches. Default is 5.
 #' 
@@ -55,7 +57,7 @@
 #' @examples
 #' library(ggplot2)
 #' plt <- ggplot(data    = mtcars, 
-#'               mapping = aes(x=mpg, y=disp)) +
+#'               mapping = aes(x=.data$mpg, y=.data$disp)) +
 #'   geom_point() +
 #'   theme_classic()
 #' 
@@ -78,7 +80,8 @@ fig_to_rtf <- function(plot_obj, file_name,
                        org, header_page, 
                        figure_title, 
                        footer_snapshot, path_program, path_output,
-                       font.family=6,
+                       font_family=6,
+                       font_size_header=10,
                        fig_width=5, fig_height=5,
                        orientation="landscape",
                        margin=c(1,1, 0.75, 0.75, 0.5, 0.5),
@@ -106,7 +109,7 @@ fig_to_rtf <- function(plot_obj, file_name,
   }
   
   # Return error if incorrect values entered
-  if(!font.family %in% 1:10) stop("Invalid font.family entered. See r2rtf:::font_type() for valid options.")
+  if(!font_family %in% 1:10) stop("Invalid font_family entered. See r2rtf:::font_type() for valid options.")
   
   # Set-up defaults if not entered
   if(!"org" %in% mn) org <- ""
@@ -159,23 +162,23 @@ fig_to_rtf <- function(plot_obj, file_name,
                    title = figure_title, 
                    text_format="b", 
                    text_justification="l",
-                   text_font = font.family)
+                   text_font = font_family)
   
   attr_title <- attr(out, "rtf_title")
   
   out <- rtf_page_header(out, 
                          text=header_page, 
-                         text_font_size = 10, 
+                         text_font_size = font_size_header, 
                          text_justification="l",
-                         text_font = font.family,
+                         text_font = font_family,
                          text_format = "b")
   
   out <- rtf_page_footer(out, 
                          text               = footer_page,
-                         text_font_size     = 10,
+                         text_font_size     = font_size_header,
                          text_justification = "l",
                          text_convert       = FALSE,
-                         text_font          = font.family,
+                         text_font          = font_family,
                          text_format        = "b") 
   
   out <- rtf_figure(out,
@@ -192,7 +195,7 @@ fig_to_rtf <- function(plot_obj, file_name,
     out <- rtf_insert_stylesheet_headings(out)
     
     # Insert heading
-    out <- rtf_insert_heading(out, heading_level=title_as_heading, caption = figure_title, font.family = font.family)  
+    out <- rtf_insert_heading(out, heading_level=title_as_heading, caption = figure_title, font_family = font_family)  
   }
   
   # Insert tab stop in header to right-align page number

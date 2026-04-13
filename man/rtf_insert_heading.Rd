@@ -4,7 +4,7 @@
 \alias{rtf_insert_heading}
 \title{Transform RTF Title to Heading}
 \usage{
-rtf_insert_heading(rtf, heading_level, caption, font.family)
+rtf_insert_heading(rtf, heading_level, caption, font_family)
 }
 \arguments{
 \item{rtf}{list. List with 3 elements created by \code{r2rtf::rtf_encode}.}
@@ -13,7 +13,7 @@ rtf_insert_heading(rtf, heading_level, caption, font.family)
 
 \item{caption}{character. The title already present in the RTF.}
 
-\item{font.family}{integer. The font family number used in the RTF.}
+\item{font_family}{integer. The font family number used in the RTF.}
 }
 \value{
 The input RTF object with the modified body
@@ -22,7 +22,25 @@ The input RTF object with the modified body
 \code{rtf_insert_heading} transforms the RTF title into a specified heading style.
 }
 \details{
-\code{rtf_insert_heading} is an internal function that modifies the RTF 
-  body to change the title into the specified heading style. Note that a stylesheet 
+\code{rtf_insert_heading} modifies the RTF body to change the title 
+  into the specified heading style. Note that a stylesheet 
   with defined heading level must be present and the title must be bold.
+}
+\examples{
+# Create a simple RTF object
+rtf <- list(
+ start = "{\\\\rtf1\\\\ansi\\\\deff0{\\\\fonttbl{\\\\f0 Arial;}}",
+ body = "{\\\\f0\\\\b This is the body of the RTF document.}",
+ end = "}"
+ )
+ 
+# Insert the stylesheet for headings
+rtf <- rtf_insert_stylesheet_headings(rtf)
+
+# Insert heading level 2
+rtf <- rtf_insert_heading(rtf, 
+                          heading_level = 2, 
+                          caption = "This is the body of the RTF document.", 
+                          font_family = 1)
+
 }

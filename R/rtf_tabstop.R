@@ -17,7 +17,21 @@
 #'   followed by a tab character and the date of creation.
 #'
 #' @returns The input RTF object with the modified body
-#'
+#' 
+#' @examples
+#' # Create a simple RTF object with a header that includes a tab stop
+#' rtf <- list(
+#'   start = "{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0 Arial;}}",
+#'   body = "{\\header\n{\\pard{Header Left \\tab Header Right}\\par}\n}{\\f0\\b RTF text.}",
+#'   end = "}"
+#'   )
+#'  
+#' # Insert the tabstop
+#' rtf <- rtf_tabstop(rtf, 
+#'                    twips = 9360, 
+#'                    type = "header")
+#' 
+#' @export
 rtf_tabstop <- function(rtf, twips, type="header"){
   # Input checks
   if(!"list" %in% class(rtf)) stop("Input 'rtf' must be of class 'list'.")
