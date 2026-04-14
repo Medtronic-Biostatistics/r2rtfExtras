@@ -37,8 +37,8 @@ rtf <- list(
   )
  
 # Insert the tabstop
-rtf <- rtf_tabstop(rtf, 
-                   twips = 9360, 
-                   type = "header")
+rtf_tabstop(rtf   = rtf, 
+            twips = 9360, 
+            type = "header")
 
 }

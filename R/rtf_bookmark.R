@@ -27,9 +27,9 @@
 #'  )
 #'  
 #' # Insert the bookmark and capture all contents
-#' rtf <- rtf_bookmark(rtf, 
-#'                     bookmark  = "mybookmark", 
-#'                     inc_title = TRUE)
+#' rtf_bookmark(rtf       = rtf, 
+#'              bookmark  = "mybookmark", 
+#'              inc_title = TRUE)
 #' 
 #' @export
 rtf_bookmark <- function(rtf, bookmark, inc_title=FALSE){
