@@ -209,6 +209,9 @@ fig_to_rtf <- function(plot_obj, file_name,
     out <- rtf_bookmark(out, bookmark_name, bookmark_inc_title)
   }
   
+  # Cleanup
+  unlink(filename)
+  
   if(output){
     write_rtf(out, file = file_name)  
   } else{
