@@ -1,5 +1,12 @@
 # r2rtfExtras <a href="https://medtronic-biostatistics.github.io/r2rtfExtras/"><img src="man/figures/logo.png" alt="r2rtfExtras website" align="right" height="111"/></a>
 
+<!-- badges: start -->
+
+[![R-CMD-check](https://github.com/Medtronic-Biostatistics/r2rtfExtras/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Medtronic-Biostatistics/r2rtfExtras/actions/workflows/R-CMD-check.yaml) 
+![Codecov test coverage](https://codecov.io/gh/Medtronic-Biostatistics/r2rtfExtras/graph/badge.svg)](https://app.codecov.io/gh/Medtronic-Biostatistics/r2rtfExtras)
+
+<!-- badges: end -->
+
 The goal of `r2rtfExtras` is to provide some additional helper functions
 to assist in creating RTF output with [`r2rtf`](https://github.com/Merck/r2rtf/).
 

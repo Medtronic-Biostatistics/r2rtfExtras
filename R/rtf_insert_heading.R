@@ -28,10 +28,10 @@
 #' rtf <- rtf_insert_stylesheet_headings(rtf)
 #' 
 #' # Insert heading level 2
-#' rtf <- rtf_insert_heading(rtf, 
-#'                           heading_level = 2, 
-#'                           caption = "This is the body of the RTF document.", 
-#'                           font_family = 1)
+#' rtf_insert_heading(rtf           = rtf, 
+#'                    heading_level = 2, 
+#'                    caption       = "This is the body of the RTF document.", 
+#'                    font_family   = 1)
 #' 
 #' @export
 rtf_insert_heading <- function(rtf, heading_level, caption, font_family){

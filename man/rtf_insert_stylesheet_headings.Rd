@@ -30,6 +30,6 @@ rtf <- list(
  )
  
 # Insert the stylesheet for headings
-rtf <- rtf_insert_stylesheet_headings(rtf)
+rtf_insert_stylesheet_headings(rtf)
 
 }

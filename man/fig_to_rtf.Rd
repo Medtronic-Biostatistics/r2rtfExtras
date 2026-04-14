@@ -100,5 +100,4 @@ fig_to_rtf(plot_obj        = plt,
            fig_height      = 3.2,
            output          = FALSE)
 
-
 }

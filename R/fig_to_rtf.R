@@ -71,7 +71,6 @@
 #'            fig_height      = 3.2,
 #'            output          = FALSE)
 #' 
-#' 
 #' @importFrom ggplot2 ggsave
 #' @importFrom r2rtf rtf_read_figure rtf_figure
 #'
