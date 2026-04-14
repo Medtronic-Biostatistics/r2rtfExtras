@@ -81,7 +81,16 @@ must have elements named start, body, and end.</p></dd>
 <span class="r-in"><span> <span class="op">)</span></span></span>
 <span class="r-in"><span> </span></span>
 <span class="r-in"><span><span class="co"># Insert the stylesheet for headings</span></span></span>
-<span class="r-in"><span><span class="va">rtf</span> <span class="op">&lt;-</span> <span class="fu">rtf_insert_stylesheet_headings</span><span class="op">(</span><span class="va">rtf</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">rtf_insert_stylesheet_headings</span><span class="op">(</span><span class="va">rtf</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $start</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0 Arial;}} \n{\\stylesheet{\\s1 heading 1;}\n{\\s2 heading 2;}\n{\\s3 heading 3;}\n{\\s4 heading 4;}\n}\n\n"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $body</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "{\\f0\\b This is the body of the RTF document.}"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $end</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "}"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

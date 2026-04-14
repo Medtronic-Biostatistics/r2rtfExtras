@@ -48,7 +48,16 @@ rtf <- list(
  )
  
 # Insert the bookmark and capture all contents
-rtf <- rtf_bookmark(rtf, 
-                    bookmark  = "mybookmark", 
-                    inc_title = TRUE)
+rtf_bookmark(rtf       = rtf, 
+             bookmark  = "mybookmark", 
+             inc_title = TRUE)
+#> $start
+#> [1] "{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0 Arial;}}{\\*\\bkmkstart mybookmark}"
+#> 
+#> $body
+#> [1] "{\\f0\\b This is the body of the RTF document.}"
+#> 
+#> $end
+#> [1] "{\\*\\bkmkend mybookmark}\n}"
+#> 
 ```

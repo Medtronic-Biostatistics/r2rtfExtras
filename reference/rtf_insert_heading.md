@@ -52,8 +52,17 @@ rtf <- list(
 rtf <- rtf_insert_stylesheet_headings(rtf)
 
 # Insert heading level 2
-rtf <- rtf_insert_heading(rtf, 
-                          heading_level = 2, 
-                          caption = "This is the body of the RTF document.", 
-                          font_family = 1)
+rtf_insert_heading(rtf           = rtf, 
+                   heading_level = 2, 
+                   caption       = "This is the body of the RTF document.", 
+                   font_family   = 1)
+#> $start
+#> [1] "{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0 Arial;}} \n{\\stylesheet{\\s1 heading 1;}\n{\\s2 heading 2;}\n{\\s3 heading 3;}\n{\\s4 heading 4;}\n}\n\n"
+#> 
+#> $body
+#> [1] "\\s2{\\f0\\b This is the body of the RTF document.}"
+#> 
+#> $end
+#> [1] "}"
+#> 
 ```

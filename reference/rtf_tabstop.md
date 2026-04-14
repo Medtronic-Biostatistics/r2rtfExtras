@@ -50,7 +50,16 @@ rtf <- list(
   )
  
 # Insert the tabstop
-rtf <- rtf_tabstop(rtf, 
-                   twips = 9360, 
-                   type = "header")
+rtf_tabstop(rtf   = rtf, 
+            twips = 9360, 
+            type = "header")
+#> $start
+#> [1] "{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0 Arial;}}"
+#> 
+#> $body
+#> [1] "{\\header\n{\\pard\\tqr\\tx9360{Header Left \\tab Header Right}\\par}\n}{\\f0\\b RTF text.}"
+#> 
+#> $end
+#> [1] "}"
+#> 
 ```
