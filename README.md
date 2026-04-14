@@ -2,8 +2,7 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/Medtronic-Biostatistics/r2rtfExtras/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Medtronic-Biostatistics/r2rtfExtras/actions/workflows/R-CMD-check.yaml) 
-![Codecov test coverage](https://codecov.io/gh/Medtronic-Biostatistics/r2rtfExtras/graph/badge.svg)](https://app.codecov.io/gh/Medtronic-Biostatistics/r2rtfExtras)
+[![R-CMD-check](https://github.com/Medtronic-Biostatistics/r2rtfExtras/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Medtronic-Biostatistics/r2rtfExtras/actions/workflows/R-CMD-check.yaml) [![Codecov test coverage](https://codecov.io/gh/Medtronic-Biostatistics/r2rtfExtras/graph/badge.svg)](https://app.codecov.io/gh/Medtronic-Biostatistics/r2rtfExtras)
 
 <!-- badges: end -->
 
