@@ -15,9 +15,11 @@ With each function, the input is an RTF object created by
 and the output is the same RTF object with modifications. Each function
 manipulates the underlying RTF code.
 
-Additionally, these functions are not exported, but are used internally
-within the `df_to_rtf` and `fig_to_rtf` functions; the underlying code
-is readily available in the Github repository.
+These functions are used internally within the `df_to_rtf` and
+`fig_to_rtf` functions and can also be used independently for further
+customization of the RTF output. For users interested in the internal
+workings of these functions, the underlying code is readily available in
+the Github repository.
 
 ## rtf_bookmark()
 
